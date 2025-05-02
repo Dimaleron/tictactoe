@@ -1,14 +1,14 @@
 program tictactoe.aleo {
     // A row in a tic tac toe board.
-    // - `c1_24691` : The first entry in the row.
-    // - `c2_24691` : The second entry in the row.
-    // - `c3_24691` : The third entry in the row.
+    // - `c1_22634` : The first entry in the row.
+    // - `c2_22634` : The second entry in the row.
+    // - `c3_22634` : The third entry in the row.
     // A valid entry is either 0, 1, or 2, where 0 is empty, 1 corresponds to player 1, and 2 corresponds to player 2.
     // Any other values are invalid.
     struct Row {
-        c1_24691: u8,
-        c2_24691: u8,
-        c3_24691: u8
+        c1_22634: u8,
+        c2_22634: u8,
+        c3_22634: u8
     }
 
     // A tic tac toe board.
@@ -24,9 +24,9 @@ program tictactoe.aleo {
     // Returns an empty board.
     transition new() -> Board {
         return Board {
-            r1: Row { c1_24691: 0u8, c2_24691: 0u8, c3_24691: 0u8 },
-            r2: Row { c1_24691: 0u8, c2_24691: 0u8, c3_24691: 0u8 },
-            r3: Row { c1_24691: 0u8, c2_24691: 0u8, c3_24691: 0u8 },
+            r1: Row { c1_22634: 0u8, c2_22634: 0u8, c3_22634: 0u8 },
+            r2: Row { c1_22634: 0u8, c2_22634: 0u8, c3_22634: 0u8 },
+            r3: Row { c1_22634: 0u8, c2_22634: 0u8, c3_22634: 0u8 },
         };
     }
 
@@ -35,14 +35,14 @@ program tictactoe.aleo {
     // - `p` : A number corresponding to a player.
     function check_for_win(b: Board, p: u8) -> bool {
         return
-            (b.r1.c1_24691 == p && b.r1.c2_24691 == p && b.r1.c3_24691 == p) || // row 1
-            (b.r2.c1_24691 == p && b.r2.c2_24691 == p && b.r2.c3_24691 == p) || // row 2
-            (b.r3.c1_24691 == p && b.r3.c3_24691 == p && b.r3.c3_24691 == p) || // row 3
-            (b.r1.c1_24691 == p && b.r2.c1_24691 == p && b.r3.c1_24691 == p) || // column 1
-            (b.r1.c2_24691 == p && b.r2.c3_24691 == p && b.r3.c2_24691 == p) || // column 2
-            (b.r1.c3_24691 == p && b.r2.c3_24691 == p && b.r3.c3_24691 == p) || // column 3
-            (b.r1.c1_24691 == p && b.r2.c2_24691 == p && b.r3.c3_24691 == p) || // diagonal
-            (b.r1.c3_24691 == p && b.r2.c2_24691 == p && b.r3.c1_24691 == p); // other diagonal
+            (b.r1.c1_22634 == p && b.r1.c2_22634 == p && b.r1.c3_22634 == p) || // row 1
+            (b.r2.c1_22634 == p && b.r2.c2_22634 == p && b.r2.c3_22634 == p) || // row 2
+            (b.r3.c1_22634 == p && b.r3.c3_22634 == p && b.r3.c3_22634 == p) || // row 3
+            (b.r1.c1_22634 == p && b.r2.c1_22634 == p && b.r3.c1_22634 == p) || // column 1
+            (b.r1.c2_22634 == p && b.r2.c3_22634 == p && b.r3.c2_22634 == p) || // column 2
+            (b.r1.c3_22634 == p && b.r2.c3_22634 == p && b.r3.c3_22634 == p) || // column 3
+            (b.r1.c1_22634 == p && b.r2.c2_22634 == p && b.r3.c3_22634 == p) || // diagonal
+            (b.r1.c3_22634 == p && b.r2.c2_22634 == p && b.r3.c1_22634 == p); // other diagonal
     }
 
     // Returns an updated tic tac toe board with a move made by a player.
@@ -61,15 +61,15 @@ program tictactoe.aleo {
         assert(1u8 <= col && col <= 3u8);
 
         // Unpack the entries in the board into variables.
-        let r1c1: u8 = board.r1.c1_24691;
-        let r1c2: u8 = board.r1.c2_24691;
-        let r1c3: u8 = board.r1.c3_24691;
-        let r2c1: u8 = board.r2.c1_24691;
-        let r2c2: u8 = board.r2.c2_24691;
-        let r2c3: u8 = board.r2.c3_24691;
-        let r3c1: u8 = board.r3.c1_24691;
-        let r3c2: u8 = board.r3.c2_24691;
-        let r3c3: u8 = board.r3.c3_24691;
+        let r1c1: u8 = board.r1.c1_22634;
+        let r1c2: u8 = board.r1.c2_22634;
+        let r1c3: u8 = board.r1.c3_22634;
+        let r2c1: u8 = board.r2.c1_22634;
+        let r2c2: u8 = board.r2.c2_22634;
+        let r2c3: u8 = board.r2.c3_22634;
+        let r3c1: u8 = board.r3.c1_22634;
+        let r3c2: u8 = board.r3.c2_22634;
+        let r3c3: u8 = board.r3.c3_22634;
 
         // Update the appropriate entry with the given move.
         if row == 1u8 && col == 1u8 && r1c1 == 0u8 {
@@ -94,9 +94,9 @@ program tictactoe.aleo {
 
         // Construct the updated game board.
         let updated: Board = Board {
-            r1: Row { c1_24691: r1c1, c2_24691: r1c2, c3_24691: r1c3 },
-            r2: Row { c1_24691: r2c1, c2_24691: r2c2, c3_24691: r2c3 },
-            r3: Row { c1_24691: r3c1, c2_24691: r3c2, c3_24691: r3c3 },
+            r1: Row { c1_22634: r1c1, c2_22634: r1c2, c3_22634: r1c3 },
+            r2: Row { c1_22634: r2c1, c2_22634: r2c2, c3_22634: r2c3 },
+            r3: Row { c1_22634: r3c1, c2_22634: r3c2, c3_22634: r3c3 },
         };
 
         // Check if the game is over.
